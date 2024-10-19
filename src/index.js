@@ -57,7 +57,8 @@ function App() {
 } 
 
 function Header() {
-  return <h1>Fast Reat Pizza Co.</h1>;
+    const style={color:"red",fontSize:"48px",textTransform:"uppercase"}
+  return <h1 style={style}>Fast Reat Pizza Co.</h1>;
 }
 
 function Menu() {
@@ -70,9 +71,17 @@ function Menu() {
 }
 
 function Footer() {
+    const hour = new Date().getHours();
+    const openHour = 9;
+    const closeHour=11;
+
+    if (hour >= openHour && hour < closeHour) {
+      return <footer>We're currently open!</footer>;
+    } else {
   return (
-    <footer>{new Date().toLocaleTimeString()}.We're currently open!</footer>
+    <footer>{new Date().toLocaleTimeString()}. Sorry We're currently close😢!</footer>
   );
+}
 }
 
 function Pizza() {
